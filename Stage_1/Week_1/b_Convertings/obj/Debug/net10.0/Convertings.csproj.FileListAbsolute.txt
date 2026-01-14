@@ -1,0 +1,14 @@
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/bin/Debug/net10.0/Convertings
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/bin/Debug/net10.0/Convertings.deps.json
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/bin/Debug/net10.0/Convertings.runtimeconfig.json
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/bin/Debug/net10.0/Convertings.dll
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/bin/Debug/net10.0/Convertings.pdb
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/obj/Debug/net10.0/Convertings.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/obj/Debug/net10.0/Convertings.AssemblyInfoInputs.cache
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/obj/Debug/net10.0/Convertings.AssemblyInfo.cs
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/obj/Debug/net10.0/Convertings.csproj.CoreCompileInputs.cache
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/obj/Debug/net10.0/Convertings.dll
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/obj/Debug/net10.0/refint/Convertings.dll
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/obj/Debug/net10.0/Convertings.pdb
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/obj/Debug/net10.0/Convertings.genruntimeconfig.cache
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/obj/Debug/net10.0/ref/Convertings.dll
