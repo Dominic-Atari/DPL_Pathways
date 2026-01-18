@@ -263,7 +263,8 @@ public class Week_Chalange
                     Console.Write("Enter the index of the Restaurant to update ");
                     index1 = Console.ReadLine();
                     int.TryParse(index1, out int validIndex);
-                    if (validIndex > 0 && validIndex < update.Length)
+                    
+                    if (validIndex > 0 && validIndex <= update.Length)
                     {
                         
                         Console.WriteLine("Enter Rating to update");
@@ -275,8 +276,7 @@ public class Week_Chalange
                         while (true)
                         {
                             
-                            if (rate1 > 0 || rate1 < 6 || !int.TryParse(ratingInput, out int _) || 
-                                ratingInput.Contains("*") || Regex.IsMatch(ratingInput, @"^\*{1,5}$"))
+                            if (rate1 > 0 || rate1 < 6 || !int.TryParse(ratingInput, out int _) || Regex.IsMatch(ratingInput, @"^\*{1,5}$"))
                             {
                                 string line = update[indexFound]; 
 
@@ -312,11 +312,7 @@ public class Week_Chalange
                     }
 
                 }
-                
-                
-
-                    //exitUpdate = true;
-            
+                         
             }
         }
 
@@ -360,12 +356,14 @@ public class Week_Chalange
                     {
                         
                         Console.WriteLine("Error: deleting choice out of bound");
+                        return;
                     }
 
                 }
                 else
                 {
                     Console.WriteLine("Error: input should be a number.");
+                    return;
                 }
                 
             }
