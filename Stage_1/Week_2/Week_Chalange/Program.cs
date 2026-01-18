@@ -335,7 +335,7 @@ public class Week_Chalange
                 if(int.TryParse(Console.ReadLine(), out int deleteIndex))
                 {
                     
-                    if(deleteIndex > 0 && deleteIndex < load.Length)
+                    if(deleteIndex > 0 && deleteIndex <= load.Length)
                     {
 
                         string[] updateWithNewLine = new string[load.Length -1];
