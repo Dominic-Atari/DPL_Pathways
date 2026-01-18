@@ -163,8 +163,6 @@ public class Week_Chalange
 
             // Mark as ready for saving
             hasPending = true;
-
-            Console.WriteLine("Captured in memory. Press S to save to file.");
         }
 
         // Save the user's list of restaurants (from a data structure to a data file)
@@ -303,7 +301,7 @@ public class Week_Chalange
                             }  
                         }
                     }
-                    else if (index1.ToUpper() == "Q")
+                    else if (index1.ToUpper() == "Q") // incase U is pressed by mistake. user can Quite
                     {
                         Environment.Exit(0);
                     }
@@ -327,43 +325,49 @@ public class Week_Chalange
         {
             // Console.WriteLine("Enter the index of the Cuisine you would want to delete");
             // string name = Console.ReadLine();
-
-            Console.WriteLine("Enter index to delete");
-            string[] load = File.ReadAllLines(mainFile);
-
-            int notFound = -1;
             
-            if (int.TryParse(Console.ReadLine(), out int deleteIndex))
+            string[] load = File.ReadAllLines(mainFile);
+            while(true)
             {
-                if(deleteIndex < 1 || deleteIndex >= load.Length)
+                
+                Console.WriteLine("Enter index to delete");
+
+                if(int.TryParse(Console.ReadLine(), out int deleteIndex))
                 {
-                    Console.WriteLine("Error: deleting choice out of bound");
-                }
-                notFound = deleteIndex -1;
-            }
-
-            if (notFound != -1)
-            {
-
-                string[] updateWithNewLine = new string[load.Length -1];
-
-                int j = 0;
-                for(int i = 0; i < load.Length; i++)
-                {
-                    if(i == notFound)
-                    {
-                        continue;
-                    }
-                        updateWithNewLine[j] = load[i];
                     
-                    j++;
+                    if(deleteIndex > 0 && deleteIndex < load.Length)
+                    {
+
+                        string[] updateWithNewLine = new string[load.Length -1];
+
+                        int j = 0;
+                        for(int i = 0; i < load.Length; i++)
+                        {
+                            if(i == (deleteIndex -1))
+                            {
+                                continue;
+                            }
+                                updateWithNewLine[j] = load[i];
+                            
+                            j++;
+                        }
+
+                        File.WriteAllLines(mainFile, updateWithNewLine);
+                        Console.WriteLine("Name Deleted Successfully.");
+                        return;
+                    }
+                    else
+                    {
+                        
+                        Console.WriteLine("Error: deleting choice out of bound");
+                    }
+
                 }
-                File.WriteAllLines(mainFile, updateWithNewLine);
-                Console.WriteLine("Name Deleted Successfully.");
-            }
-            else
-            {
-                Console.WriteLine("Error: value is empty or wrong input");
+                else
+                {
+                    Console.WriteLine("Error: input should be a number.");
+                }
+                
             }
         }
 
