@@ -88,6 +88,7 @@ public class Week_Chalange
                         Console.WriteLine("");
                         Console.WriteLine("Here is the result!");
 
+
                         string s = "";
                         while ((s = read.ReadLine()) != null)
                         {
@@ -252,70 +253,61 @@ public class Week_Chalange
         {
             
             string[] update = File.ReadAllLines(mainFile);
-                
+            bool continueUpdating = true;
 
-            for(int i = 0; i < update.Length; i++)
+            while (continueUpdating)
             {
-                string index1;
-                bool exit = true;
-                while (exit)
+                Console.Write("Enter the index of the Restaurant to update (or Q to cancel): ");
+                string? index1 = Console.ReadLine();
+                
+                if (index1?.ToUpper() == "Q")
                 {
-                    Console.Write("Enter the index of the Restaurant to update ");
-                    index1 = Console.ReadLine();
-                    int.TryParse(index1, out int validIndex);
+                    continueUpdating = false;
+                    break;
+                }
+                
+                if (int.TryParse(index1, out int validIndex) && validIndex > 0 && validIndex <= update.Length)
+                {
+                    Console.WriteLine("Enter Rating to update (1-5 stars as *)");
+                    string? ratingInput = Console.ReadLine();
                     
-                    if (validIndex > 0 && validIndex <= update.Length)
+                    if (!string.IsNullOrWhiteSpace(ratingInput) && Regex.IsMatch(ratingInput, @"^\*{1,5}$"))
                     {
-                        
-                        Console.WriteLine("Enter Rating to update");
-                        string ratingInput = Console.ReadLine();
                         int indexFound = validIndex - 1;
-
-                        int rate1 = ratingInput.Length;
-
-                        while (true)
+                        string line = update[indexFound];
+                        
+                        int starStart = line.IndexOf('*');
+                        if (starStart >= 0)
                         {
-                            
-                            if (rate1 > 0 || rate1 < 6 || !int.TryParse(ratingInput, out int _) || Regex.IsMatch(ratingInput, @"^\*{1,5}$"))
+                            int starEnd = starStart;
+                            while (starEnd < line.Length && line[starEnd] == '*')
                             {
-                                string line = update[indexFound]; 
-
-                                int starStart = line.IndexOf('*'); // index 28
-
-                                int starEnd = starStart;
-                                while(starEnd < line.Length && line[starEnd] == '*')
-                                {
-                                    starEnd++;
-                                }
-                                string newStar = new string('*', rate1);
-                                string updateLine = line.Substring(0, starStart) + newStar + line.Substring(starEnd);
-                                update[indexFound] = updateLine;
-                                File.WriteAllLines(mainFile, update);
-                                return; // return to the selection menue.
-
+                                starEnd++;
                             }
-                            else
-                            {
-                                
-                                Console.Write("Error: rating must be *");
-                            }  
+                            
+                            string updateLine = line.Substring(0, starStart) + ratingInput + line.Substring(starEnd);
+                            update[indexFound] = updateLine;
+                            File.WriteAllLines(mainFile, update);
+                            
+                            Console.WriteLine("Rating updated successfully!");
+                            continueUpdating = false; // Exit back to main menu
                         }
-                    }
-                    else if (index1.ToUpper() == "Q") // incase U is pressed by mistake. user can Quite
-                    {
-                        Environment.Exit(0);
+                        else
+                        {
+                            Console.WriteLine("Error: Could not find rating in that line");
+                        }
                     }
                     else
                     {
-                        
-                        Console.WriteLine("Error: Index is not found");
+                        Console.WriteLine("Error: Rating must be * (1 to 5 stars)");
                     }
-
                 }
-                         
+                else
+                {
+                    Console.WriteLine("Error: Invalid index");
+                }
             }
         }
-
         // Delete a restaurant
         else if (input == "D")
         {

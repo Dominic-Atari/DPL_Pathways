@@ -1,0 +1,15 @@
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Inheritance/obj/Debug/net10.0/Inheritance.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Inheritance/obj/Debug/net10.0/Inheritance.AssemblyInfoInputs.cache
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Inheritance/obj/Debug/net10.0/Inheritance.AssemblyInfo.cs
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Inheritance/obj/Debug/net10.0/Inheritance.csproj.CoreCompileInputs.cache
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Inheritance/obj/Debug/net10.0/Inheritance.sourcelink.json
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Inheritance/bin/Debug/net10.0/Inheritance
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Inheritance/bin/Debug/net10.0/Inheritance.deps.json
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Inheritance/bin/Debug/net10.0/Inheritance.runtimeconfig.json
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Inheritance/bin/Debug/net10.0/Inheritance.dll
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Inheritance/bin/Debug/net10.0/Inheritance.pdb
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Inheritance/obj/Debug/net10.0/Inheritance.dll
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Inheritance/obj/Debug/net10.0/refint/Inheritance.dll
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Inheritance/obj/Debug/net10.0/Inheritance.pdb
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Inheritance/obj/Debug/net10.0/Inheritance.genruntimeconfig.cache
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Inheritance/obj/Debug/net10.0/ref/Inheritance.dll
