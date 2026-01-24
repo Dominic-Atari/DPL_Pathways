@@ -9,7 +9,7 @@ public class Week_Chalange
     static string storeRestaurant;
     static string storeCuisines;
     static string[] nameArray = new string[25];
-    static int arraySize = 25; 
+    static int arraySize = 25;
     static string mainFile = "mainFile.txt";
     static bool hasPending = true;
     static void Main(string[] srgd)
@@ -34,8 +34,8 @@ public class Week_Chalange
         */
 
         // MENUE
-            
-            bool running = true;
+
+        bool running = true;
         do
         {
 
@@ -49,25 +49,25 @@ public class Week_Chalange
 
 
             input = Console.ReadLine().ToUpper();
-                
-                if(input == "Q")
-                {
-                    running = false;
-                }
-                else if(!input.Equals("L") && !input.Equals("S") &&
-                        !input.Equals("C") && !input.Equals("R") &&
-                        !input.Equals("U") && !input.Equals("D"))
-                {
 
-                    Console.WriteLine("Error: Invalid input please try again");
-                }
-                else
-                {
-                    
-                    ProcessChoices();
-                }
+            if (input == "Q")
+            {
+                running = false;
+            }
+            else if (!input.Equals("L") && !input.Equals("S") &&
+                    !input.Equals("C") && !input.Equals("R") &&
+                    !input.Equals("U") && !input.Equals("D"))
+            {
 
-        } while(running);
+                Console.WriteLine("Error: Invalid input please try again");
+            }
+            else
+            {
+
+                ProcessChoices();
+            }
+
+        } while (running);
 
     }
     static void ProcessChoices()
@@ -78,11 +78,11 @@ public class Week_Chalange
         if (input == "L")
         {
             //Console.WriteLine("You are Loading all L");
-            using(StreamReader read = File.OpenText(mainFile))
+            using (StreamReader read = File.OpenText(mainFile))
             {
-                if(index < 26)
+                if (index < 26)
                 {
-                    
+
                     try
                     {
                         Console.WriteLine("");
@@ -98,7 +98,7 @@ public class Week_Chalange
                         }
                         Console.WriteLine("");
                     }
-                    catch(Exception )
+                    catch (Exception)
                     {
                         Console.WriteLine("File failed to load: Contact Anchovy");
 
@@ -108,7 +108,7 @@ public class Week_Chalange
                 {
                     Console.WriteLine("You exided the limit");
                 }
-                
+
             }
         }
 
@@ -237,21 +237,21 @@ public class Week_Chalange
 
             read.ToString();
             //Console.WriteLine(read);
-            for(int r = 0; r < read.Length; r++)
+            for (int r = 0; r < read.Length; r++)
             {
-                if(read[r] != null && read[r] != "")
+                if (read[r] != null && read[r] != "")
                 {
-                    
+
                     Console.WriteLine(read[r]);
                 }
             }
-                    Console.WriteLine("");
+            Console.WriteLine("");
         }
 
         //Update the rating for a restaurant, (Bonus: Update the restaurant name and cuisine)
         else if (input == "U")
         {
-            
+
             string[] update = File.ReadAllLines(mainFile);
             bool continueUpdating = true;
 
@@ -259,23 +259,23 @@ public class Week_Chalange
             {
                 Console.Write("Enter the index of the Restaurant to update (or Q to cancel): ");
                 string? index1 = Console.ReadLine();
-                
+
                 if (index1?.ToUpper() == "Q")
                 {
                     continueUpdating = false;
                     break;
                 }
-                
+
                 if (int.TryParse(index1, out int validIndex) && validIndex > 0 && validIndex <= update.Length)
                 {
                     Console.WriteLine("Enter Rating to update (1-5 stars as *)");
                     string? ratingInput = Console.ReadLine();
-                    
+
                     if (!string.IsNullOrWhiteSpace(ratingInput) && Regex.IsMatch(ratingInput, @"^\*{1,5}$"))
                     {
                         int indexFound = validIndex - 1;
                         string line = update[indexFound];
-                        
+
                         int starStart = line.IndexOf('*');
                         if (starStart >= 0)
                         {
@@ -284,11 +284,11 @@ public class Week_Chalange
                             {
                                 starEnd++;
                             }
-                            
+
                             string updateLine = line.Substring(0, starStart) + ratingInput + line.Substring(starEnd);
                             update[indexFound] = updateLine;
                             File.WriteAllLines(mainFile, update);
-                            
+
                             Console.WriteLine("Rating updated successfully!");
                             continueUpdating = false; // Exit back to main menu
                         }
@@ -313,30 +313,30 @@ public class Week_Chalange
         {
             // Console.WriteLine("Enter the index of the Cuisine you would want to delete");
             // string name = Console.ReadLine();
-            
+
             string[] load = File.ReadAllLines(mainFile);
-            while(true)
+            while (true)
             {
-                
+
                 Console.WriteLine("Enter index to delete");
 
-                if(int.TryParse(Console.ReadLine(), out int deleteIndex))
+                if (int.TryParse(Console.ReadLine(), out int deleteIndex))
                 {
-                    
-                    if(deleteIndex > 0 && deleteIndex <= load.Length)
+
+                    if (deleteIndex > 0 && deleteIndex <= load.Length)
                     {
 
-                        string[] updateWithNewLine = new string[load.Length -1];
+                        string[] updateWithNewLine = new string[load.Length - 1];
 
                         int j = 0;
-                        for(int i = 0; i < load.Length; i++)
+                        for (int i = 0; i < load.Length; i++)
                         {
-                            if(i == (deleteIndex -1))
+                            if (i == (deleteIndex - 1)) // 1 index base
                             {
                                 continue;
                             }
-                                updateWithNewLine[j] = load[i];
-                            
+                            updateWithNewLine[j] = load[i];
+
                             j++;
                         }
 
@@ -346,7 +346,7 @@ public class Week_Chalange
                     }
                     else
                     {
-                        
+
                         Console.WriteLine("Error: deleting choice out of bound");
                         return;
                     }
@@ -357,10 +357,10 @@ public class Week_Chalange
                     Console.WriteLine("Error: input should be a number.");
                     return;
                 }
-                
+
             }
         }
 
     }
-    
+
 }

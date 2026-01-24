@@ -30,7 +30,7 @@ namespace Encapsulation
 
             // MENUE
 
-
+            // Variables
             string? input;
             string storeRate;
             string storeRestaurant;
@@ -312,46 +312,41 @@ namespace Encapsulation
                     bool exit = false;
                     while (!exit)
                     {
-
                         Console.WriteLine("Enter index to delete");
 
                         if (int.TryParse(Console.ReadLine(), out int deleteIndex))
                         {
-
+                            // [2] Validate index (1-based user input)
                             if (deleteIndex > 0 && deleteIndex <= lines.Update.Length)
                             {
-
+                                // [3] Create new array without deleted entry
                                 string[] updateWithNewLine = new string[lines.Update.Length - 1];
-                                Restaurant del = new Restaurant(updateWithNewLine);
 
                                 int j = 0;
-                                for (int i = 0; i < load.Length; i++)
+                                for (int i = 0; i < lines.Update.Length; i++)
                                 {
+                                    // [4] Skip the index to delete (convert to 0-based)
                                     if (i == (deleteIndex - 1))
                                     {
                                         continue;
                                     }
-                                    updateWithNewLine[j] = load[i];
-
+                                    updateWithNewLine[j] = lines.Update[i];
                                     j++;
                                 }
 
-                                File.WriteAllLines(mainFile, del.Update);
-                                Console.WriteLine("Name Deleted Successfully.");
+                                // [5] Save updated list back to file (FIX: use mainFile not mainFile1)
+                                File.WriteAllLines(mainFile, updateWithNewLine);
+                                Console.WriteLine("Restaurant deleted successfully.");
                                 exit = true;
                             }
                             else
                             {
-
                                 Console.WriteLine("Error: deleting choice out of bound");
-                                return;
                             }
-
                         }
                         else
                         {
                             Console.WriteLine("Error: input should be a number.");
-                            return;
                         }
 
                     }

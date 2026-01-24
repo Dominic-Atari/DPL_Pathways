@@ -1,0 +1,15 @@
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Polymorphism/obj/Debug/net10.0/Polymorphism.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Polymorphism/obj/Debug/net10.0/Polymorphism.AssemblyInfoInputs.cache
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Polymorphism/obj/Debug/net10.0/Polymorphism.AssemblyInfo.cs
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Polymorphism/obj/Debug/net10.0/Polymorphism.csproj.CoreCompileInputs.cache
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Polymorphism/obj/Debug/net10.0/Polymorphism.sourcelink.json
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Polymorphism/bin/Debug/net10.0/Polymorphism
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Polymorphism/bin/Debug/net10.0/Polymorphism.deps.json
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Polymorphism/bin/Debug/net10.0/Polymorphism.runtimeconfig.json
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Polymorphism/bin/Debug/net10.0/Polymorphism.dll
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Polymorphism/bin/Debug/net10.0/Polymorphism.pdb
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Polymorphism/obj/Debug/net10.0/Polymorphism.dll
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Polymorphism/obj/Debug/net10.0/refint/Polymorphism.dll
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Polymorphism/obj/Debug/net10.0/Polymorphism.pdb
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Polymorphism/obj/Debug/net10.0/Polymorphism.genruntimeconfig.cache
+/Users/dominicobiala/DPL_Pathways/Stage_1/Week_3/Polymorphism/obj/Debug/net10.0/ref/Polymorphism.dll

@@ -4,12 +4,12 @@ namespace Encapsulation
 {
     public class Restaurant
     {
-        // Abstracted properties
+        // Encasulation properties
         public string Name { get; set; }
         public string Rate { get; set; }
         public string Cuisine { get; set; }
 
-        public string[] Update { get; set; } // to handle update 
+        public string[] Update { get; set; } // to handle update for rate and delete functonality
         //public string[] DeleteData { get; set; }
 
         // Parameterless constructor
