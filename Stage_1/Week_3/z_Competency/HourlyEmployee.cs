@@ -32,10 +32,10 @@ namespace Stage_1.Week_3.z_Competency
             return HRate;
         }
         // display file content constructor
-        public HourlyEmployee()
-        {
+        // public HourlyEmployee()
+        // {
 
-        }
+        // }
         public override string ToString()
         {
             return $"{FirstName.PadRight(20)}{LastName.PadRight(20)}{EmployeeType.PadRight(20)}{HRate.ToString()}";
