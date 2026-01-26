@@ -45,7 +45,7 @@ namespace Stage_1.Week_3.z_Competency
             string storeFistName = "";
             string storeLastName = "";
             string storeType = "";
-            double storeEarnings = 0.0;
+            int storeEarnings = 0;
             double storeRate = 0.0;
 
             string mainFile1 = "mainFile1.txt";
@@ -96,6 +96,10 @@ namespace Stage_1.Week_3.z_Competency
                                 {
                                     Console.WriteLine("Error: Out of bound.");
                                 }
+                                // else if (string.IsNullOrWhiteSpace(loadFile.ReadToEnd())) // check if file is empty
+                                // {
+                                //     Console.WriteLine("Error: File is empty.");
+                                // }
                                 else
                                 {
 
@@ -106,7 +110,10 @@ namespace Stage_1.Week_3.z_Competency
                                         Console.WriteLine(lines);
                                         arraySize[counter] = lines;
                                         counter++;
-                                    } // end of the loop.
+                                        //return;
+                                    }
+                                    //return; // end of the loop.
+                                    continue;
                                 }
 
                             }
@@ -116,121 +123,146 @@ namespace Stage_1.Week_3.z_Competency
                             Console.WriteLine("Errir: File is not found.");
                         }
 
-
-
                     }
                     else if (input == "C")
                     {
-                        // Add employee
+                        //bool hasPending = false;
+                        // [1] Add employee
                         Console.WriteLine("Enter Employee First Name");
                         hourly.FirstName = Console.ReadLine();
                         while (string.IsNullOrWhiteSpace(hourly.FirstName) || !Regex.IsMatch(hourly.FirstName, @"^[a-zA-Z]+$"))
                         {
-                            Console.WriteLine("Error: name should have latters only. Please re-enter Employee First Name");
+                            Console.WriteLine("Error: name should have letters only. Please re-enter Employee First Name");
                             hourly.FirstName = Console.ReadLine();
                         }
-
                         storeFistName = hourly.FirstName;
-
 
                         Console.WriteLine("Enter Employee Last Name");
                         hourly.LastName = Console.ReadLine();
                         while (string.IsNullOrWhiteSpace(hourly.LastName) || !Regex.IsMatch(hourly.LastName, @"^[a-zA-Z]+$"))
                         {
-                            Console.WriteLine("Error: name should have latters only. Please re-enter Employee Last Name");
+                            Console.WriteLine("Error: name should have letters only. Please re-enter Employee Last Name");
                             hourly.LastName = Console.ReadLine();
                         }
-
                         storeLastName = hourly.LastName;
 
-                        Console.WriteLine("Enter Employee Type");
-                        employee.EmployeeType = Console.ReadLine().ToUpper();
+                        Console.WriteLine("Enter Employee Type (H for Hourly, S for Salary)");
+                        employee.EmployeeType = Console.ReadLine()?.ToUpper();
                         while (string.IsNullOrWhiteSpace(employee.EmployeeType) || Regex.IsMatch(employee.EmployeeType, @"^[^HS]+$"))
                         {
                             Console.WriteLine("Error: Type should be H or S. Please re-enter Employee Type");
-                            employee.EmployeeType = Console.ReadLine().ToUpper();
+                            employee.EmployeeType = Console.ReadLine()?.ToUpper();
                         }
                         storeType = employee.EmployeeType;
+
+                        // [2] Handle hourly employee
                         if (employee.EmployeeType == "H")
                         {
-                            // salary.EmployeeType = "H";
                             System.Console.WriteLine("Enter Employee Hourly Rate");
                             hourly.HRate = double.Parse(Console.ReadLine());
-                            while (hourly.HRate <= 0 || hourly.HRate > 1000 || string.IsNullOrWhiteSpace(hourly.HRate.ToString()) || !Regex.IsMatch(hourly.HRate.ToString(), @"^[0-9]+([0-9]{1,2})?$"))
+                            while (hourly.HRate <= 0 || hourly.HRate > 1000 || string.IsNullOrWhiteSpace(hourly.HRate.ToString()) || !Regex.IsMatch(hourly.HRate.ToString(), @"^[0-9]+(\.[0-9]{1,2})?$"))
                             {
                                 Console.WriteLine("Error: Hourly Rate should be greater than 0 and less than 1000. Please re-enter Employee Hourly Rate");
                                 hourly.HRate = double.Parse(Console.ReadLine());
                             }
-                            storeEarnings = hourly.HRate;
+                            // [3] Store rate (not bonus) - bonus calculated when displaying
+                            int convert = (int)hourly.HRate;
+                            storeEarnings = convert;
                         }
+                        // [4] Handle salary employee
                         else if (employee.EmployeeType == "S")
                         {
-                            // salary.EmployeeType = "S";
                             System.Console.WriteLine("Enter Employee Salary");
                             salary.Salary = double.Parse(Console.ReadLine());
-                            while (salary.Salary <= 0 || string.IsNullOrWhiteSpace(salary.Salary.ToString()) || !Regex.IsMatch(salary.Salary.ToString(), @"^[0-9]+(\.[0-9]{1,2})?$")) // no characters allowed
+                            while (salary.Salary <= 0 || string.IsNullOrWhiteSpace(salary.Salary.ToString()) || !Regex.IsMatch(salary.Salary.ToString(), @"^[0-9]+(\.[0-9]{1,2})?$"))
                             {
                                 Console.WriteLine("Error: Salary should be greater than 0. Please re-enter Employee Salary");
                                 salary.Salary = double.Parse(Console.ReadLine());
                             }
-                            storeEarnings = salary.Salary;
+                            // [5] Store salary (not bonus) - bonus calculated when displaying
+                            double salaryBonus = salary.Bonus(salary.Salary);
+                            int convert = (int)salaryBonus;
+                            storeEarnings = convert;
                         }
                         else
                         {
-                            Console.WriteLine($"Type is noly {"H"} or {"S"}");
+                            Console.WriteLine($"Type is only {"H"} or {"S"}");
                         }
 
+                        //hasPending = true;
+                        Console.WriteLine("Employee added. Use 'S' to save to file.");
                     }
                     else if (input == "S")
                     {
-                        // Store data in the file
-                        if (employee.EmployeeType == "S")
+                        bool hasPending = false;
+                        while (!hasPending)
                         {
+
+
+                            // Store data in the file if salary
                             Employee salaryE = new SalaryEmployee(storeFistName, storeLastName, storeType, storeEarnings);
 
-                            using (StreamWriter read = new StreamWriter(mainFile1, append: true))
+                            if (storeType == "")
                             {
-                                read.WriteLine(salaryE); // write data to file line by line.
+                                Console.WriteLine("Error: No employee data to store....");
+                                break;
+                            }
+                            else if (storeType == "S")
+                            {
 
-                                // clear after saving
-                                storeFistName = "";
-                                storeLastName = "";
-                                storeType = "";
-                                storeEarnings = 0.0;
-
-                                if (storeFistName == "")
+                                using (StreamWriter read = new StreamWriter(mainFile1, append: true))
                                 {
-                                    Console.WriteLine("Error: No employee data to store.");
+                                    read.WriteLine(salaryE); // write data to file line by line.
+                                    // clear after saving
+                                    Console.WriteLine("Employee data stored successfully.");
+
+                                    storeFistName = "";
+                                    storeLastName = "";
+                                    storeType = "";
+                                    storeEarnings = 0;
+                                    break;
+                                    // if (employee.EmployeeType == "")
+                                    // {
+                                    //     Console.WriteLine("Error: No employee data to store.");
+                                    //     continue;
+                                    // }
                                 }
                             }
-                        }
-                        else if (employee.EmployeeType == "H")
-                        {
+                            // Store data in the file if hourly
+
                             Employee hourlyE = new HourlyEmployee(storeFistName, storeLastName, storeType, storeEarnings);
 
-                            using (StreamWriter read = new StreamWriter(mainFile1, append: true))
+                            if (storeType == "")
                             {
-                                read.WriteLine(hourlyE); // write data to file line by line.
+                                Console.WriteLine("Error: No employee data to store.");
+                                //breakOut = true;
+                            }
+                            if (storeType == "H")
+                            {
 
-                                // clear after saving
-                                storeFistName = "";
-                                storeLastName = "";
-                                storeType = "";
-                                storeEarnings = 0.0;
-
-                                if (storeFistName == "")
+                                using (StreamWriter read = new StreamWriter(mainFile1, append: true))
                                 {
-                                    Console.WriteLine("Error: No employee data to store.");
+                                    read.WriteLine(hourlyE); // write data to file line by line.
+                                    Console.WriteLine("Employee data stored successfully.");
+
+                                    // clear after saving
+                                    storeFistName = "";
+                                    storeLastName = "";
+                                    storeType = "";
+                                    storeEarnings = 0;
+                                    break;
+
                                 }
                             }
                         }
-                        else
-                        {
-                            Console.WriteLine("Error: No employee data to store. Please add employee first.");
-                        }
-
-
                     }
+                    // else
+                    // {
+                    //     Console.WriteLine("Error: character should be 'H'.");
+                    //     breakOut = true;
+                    // }
+
+
                     else if (input == "R")
                     {
                         // Print all employees first name, last name, type, bonus
@@ -238,7 +270,11 @@ namespace Stage_1.Week_3.z_Competency
                         System.Console.WriteLine("----------------------------------------------------------------");
                         string[] list = File.ReadAllLines(mainFile1);
 
-
+                        if (list.Length == 0) // check if file is empty
+                        {
+                            Console.WriteLine("Error: No data found in the file.");
+                            continue;
+                        }
                         foreach (var raw in list)
                         {
                             // make sure the line is long enough for 4 columns (80 chars)
@@ -254,7 +290,7 @@ namespace Stage_1.Week_3.z_Competency
                             if (line.Substring(40, 20).Trim() == "S")
                             {
                                 // returns 10% of salary
-                                Console.WriteLine($"{col1.PadRight(20)}{col2.PadRight(20)}{col3.PadRight(20)}{int.Parse(col4) * 0.1}");
+                                Console.WriteLine($"{col1.PadRight(20)}{col2.PadRight(20)}{col3.PadRight(20)}{int.Parse(col4) / 0.1}");
                             }
                             else if (line.Substring(40, 20).Trim() == "H")
                             {
@@ -273,7 +309,7 @@ namespace Stage_1.Week_3.z_Competency
 
                         string[] read = File.ReadAllLines(mainFile1);
                         int validNum;
-                        while (!int.TryParse(indexInput, out validNum) || validNum < 0 || validNum >= read.Length)
+                        while (!int.TryParse(indexInput, out validNum) || validNum < 1 || validNum > read.Length)
                         {
                             Console.WriteLine("Error: Invalid index.");
                             indexInput = Console.ReadLine();
@@ -373,8 +409,15 @@ namespace Stage_1.Week_3.z_Competency
                                     storeNewRate = newSalary.ToString();
                                 }
                             }
+
+                            // handle the last index since we are at 1 index base for user friendliness.
+                            // if ((read[validNum] + 1) == read.Last())
+                            // {
+                            //     read[validNum - 1] = string.Format("{0,-20}{1,-20}{2,-20}{3,-20}", storeNewFirstName, storeNewLastName, storeNewType, storeNewRate).TrimEnd();
+                            // }
                             // useing string format to maintain padding
-                            read[validNum - 1] = string.Format("{0,-20}{1,-20}{2,-20}{3,-20}", storeNewFirstName, storeNewLastName, storeNewType, storeNewRate);
+                            read[validNum - 1] = string.Format("{0,-20}{1,-20}{2,-20}{3,-20}", storeNewFirstName, storeNewLastName, storeNewType, storeNewRate).TrimEnd();
+
 
                             // Save file
                             File.WriteAllLines(mainFile1, read);

@@ -25,8 +25,8 @@ namespace Stage_1.Week_3.z_Competency
 
         public override double Bonus(double bonus)
         {
-            Salary = bonus * 0.1;
-            return Salary;
+            //Salary = bonus * 0.1;
+            return bonus * 0.1;
         }
 
         // Override to string method

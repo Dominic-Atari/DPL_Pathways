@@ -28,8 +28,8 @@ namespace Stage_1.Week_3.z_Competency
         public override double Bonus(double bonus)
         {
             // Hourly, the bonus is two weeks pay (40 hours per week)
-            HRate = HRate * (40 * 2);
-            return HRate;
+            //HRate = HRate * (40 * 2);
+            return bonus * (40 * 2);
         }
         // display file content constructor
         // public HourlyEmployee()
