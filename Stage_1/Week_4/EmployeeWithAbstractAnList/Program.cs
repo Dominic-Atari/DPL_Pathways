@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Data.SqlTypes;
-using System.Diagnostics;
-using System.Diagnostics.Metrics;
-using System.Linq.Expressions;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
-using System.Xml;
 
 namespace Stage_1.Week_3.z_Competency
 {
