@@ -113,10 +113,7 @@ namespace Stage_1.Week_3.z_Competency
                                 {
                                     Console.WriteLine("Error: Out of bound.");
                                 }
-                                // else if (string.IsNullOrWhiteSpace(loadFile.ReadToEnd())) // check if file is empty
-                                // {
-                                //     Console.WriteLine("Error: File is empty.");
-                                // }
+
                                 else
                                 {
 
@@ -234,28 +231,9 @@ namespace Stage_1.Week_3.z_Competency
                             }
                             hourlyList.Add(hourly);
                         }
-
-                        //storeType = typeInput;
-
-                        // [2] Handle hourly employee
-
-
-                        // else
-                        // {
-                        //     Console.WriteLine($"Type is only {"H"} or {"S"}");
-                        // }
-
-                        //hasPending = true;
-
                     }
                     else if (input == "S")
                     {
-                        // foreach (var t in salaryList)
-                        // {
-                        //     Console.WriteLine(t);
-                        // }
-                        // Store data in the file if salary
-                        //Employee salaryE = new SalaryEmployee(storeFistName, storeLastName, storeType, storeEarnings);
                         if (hourly.EmployeeType == "H")
                         {
                             if (string.IsNullOrWhiteSpace(hourly.EmployeeType))
@@ -289,12 +267,6 @@ namespace Stage_1.Week_3.z_Competency
                                 }
                             }
                         }
-                        // else
-                        // {
-                        //     System.Console.WriteLine("Error: Nothing to save or wrong choice");
-                        // }
-
-                        // Store data in the file if hourly
                         else if (salary.EmployeeType == "S")
                         {
 
@@ -325,37 +297,23 @@ namespace Stage_1.Week_3.z_Competency
                                     {
                                         System.Console.WriteLine("Error: Salary Empty entries can't be saved.");
                                     }
-                                    //break;
-                                    //hasPending = false;
-
                                 }
                             }
-
                         }
 
                         else
                         {
                             System.Console.WriteLine("Error: Wrong choice, cant save Empty entry");
                         }
-
-
                     }
-
-                    // else
-                    // {
-                    //     Console.WriteLine("Error: character should be 'H'.");
-                    //     breakOut = true;
-                    // }
-
-
                     else if (input == "R")
                     {
                         // Print all employees first name, last name, type, bonus
                         Console.WriteLine("First Name".PadRight(20) + "Last Name".PadRight(20) + "Employee Type".PadRight(20) + "Bonus"); // heading
                         System.Console.WriteLine("----------------------------------------------------------------");
-                        string[] list = File.ReadAllLines(mainFile1);
+                        List<string> list = File.ReadAllLines(mainFile1).ToList();
 
-                        if (list.Length == 0) // check if file is empty
+                        if (list.Count == 0) // check if file is empty
                         {
                             Console.WriteLine("Error: No data found in the file.");
                             continue;
@@ -363,19 +321,17 @@ namespace Stage_1.Week_3.z_Competency
                         foreach (var raw in list)
                         {
                             // make sure the line is long enough for 4 columns (80 chars)
-                            //
-
                             string line = raw.PadRight(80);
 
                             string col1 = line.Substring(0, 20).Trim();
                             string col2 = line.Substring(20, 20).Trim();
                             string col3 = line.Substring(40, 20).Trim();
-                            string col4 = line.Substring(60, 10).Trim();   // <-- number column
+                            string col4 = line.Substring(60, 10).Trim();   // number column
 
                             if (line.Substring(40, 20).Trim() == "S")
                             {
                                 // returns 10% of salary
-                                Console.WriteLine($"{col1.PadRight(20)}{col2.PadRight(20)}{col3.PadRight(20)}{int.Parse(col4) / 0.1}");
+                                Console.WriteLine($"{col1.PadRight(20)}{col2.PadRight(20)}{col3.PadRight(20)}{int.Parse(col4) * 0.1}");
                             }
                             else if (line.Substring(40, 20).Trim() == "H")
                             {
@@ -392,9 +348,9 @@ namespace Stage_1.Week_3.z_Competency
                         Console.WriteLine("Enter the index of the employee to update:");
                         string? indexInput = Console.ReadLine();
 
-                        string[] read = File.ReadAllLines(mainFile1);
+                        List<string> read = File.ReadAllLines(mainFile1).ToList(); // reading file as a list.
                         int validNum;
-                        while (!int.TryParse(indexInput, out validNum) || validNum < 1 || validNum > read.Length)
+                        while (!int.TryParse(indexInput, out validNum) || validNum < 1 || validNum > read.Count)
                         {
                             Console.WriteLine("Error: Invalid index.");
                             indexInput = Console.ReadLine();
@@ -404,7 +360,7 @@ namespace Stage_1.Week_3.z_Competency
                         string line = read[validNum - 1].PadRight(100);
                         // Just for 1 index base for user friendliness.
                         int indexFound = -1;
-                        for (int i = 0; i < read.Length; i++)
+                        for (int i = 0; i < read.Count; i++)
                         {
                             indexFound = i;
 
@@ -414,10 +370,10 @@ namespace Stage_1.Week_3.z_Competency
                         {
 
                             // get position of each data in the line.
-                            string storeNewFirstName = line.Substring(0, 20).Trim(); // first 20 chars
+                            string storeNewFirstName = line.Substring(0, 20).Trim(); // index 0
                             string storeNewLastName = line.Substring(20, 20).Trim(); // next 20 chars
-                            string storeNewType = line.Substring(40, 20).Trim(); // next 20 chars
-                            string storeNewRate = line.Substring(60, 20).Trim(); // next 20 chars
+                            string storeNewType = line.Substring(40, 20).Trim(); // next 40 chars
+                            string storeNewRate = line.Substring(60, 20).Trim(); // next 60 chars
 
                             // inner menu for updating
                             Console.WriteLine("Enter 1 ) to update First Name");
@@ -494,12 +450,6 @@ namespace Stage_1.Week_3.z_Competency
                                     storeNewRate = newSalary.ToString();
                                 }
                             }
-
-                            // handle the last index since we are at 1 index base for user friendliness.
-                            // if ((read[validNum] + 1) == read.Last())
-                            // {
-                            //     read[validNum - 1] = string.Format("{0,-20}{1,-20}{2,-20}{3,-20}", storeNewFirstName, storeNewLastName, storeNewType, storeNewRate).TrimEnd();
-                            // }
                             // useing string format to maintain padding
                             read[validNum - 1] = string.Format("{0,-20}{1,-20}{2,-20}{3,-20}", storeNewFirstName, storeNewLastName, storeNewType, storeNewRate).TrimEnd();
 
@@ -515,13 +465,11 @@ namespace Stage_1.Week_3.z_Competency
                             Console.WriteLine("Error: Index not found.");
                             return;
                         }
-
-
                     }
                     else if (input == "D")
                     {
                         // Delete employee
-                        string[] load = File.ReadAllLines(mainFile1);
+                        List<string> load = File.ReadAllLines(mainFile1).ToList();
 
                         bool breakOut = false;
                         while (!breakOut)
@@ -532,19 +480,19 @@ namespace Stage_1.Week_3.z_Competency
                             if (int.TryParse(Console.ReadLine(), out int deleteIndex))
                             {
 
-                                if (deleteIndex > 0 && deleteIndex <= load.Length)
+                                if (deleteIndex > 0 && deleteIndex <= load.Count)
                                 {
 
-                                    string[] updateWithNewLine = new string[load.Length - 1];
+                                    string[] updateWithNewLine = new string[load.Count - 1]; // new array with one less line to append new array after deletion
 
                                     int j = 0;
-                                    for (int i = 0; i < load.Length; i++)
+                                    for (int i = 0; i < load.Count; i++)
                                     {
                                         if (i == (deleteIndex - 1)) // 1 index base no more 0 index base
                                         {
-                                            continue;
+                                            continue; // do nothing.
                                         }
-                                        updateWithNewLine[j] = load[i];
+                                        updateWithNewLine[j] = load[i]; // what is deleted becomes new empty array but in the lase index in the file.
 
                                         j++;
                                     }
@@ -555,18 +503,14 @@ namespace Stage_1.Week_3.z_Competency
                                 }
                                 else
                                 {
-
                                     Console.WriteLine("Error: deleting choice out of bound");
                                     breakOut = true;
                                 }
-
                             }
                             else
                             {
                                 Console.WriteLine("Error: input should be a number.");
-
                             }
-
                         }
                     }
                 }
