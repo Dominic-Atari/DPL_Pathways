@@ -14,6 +14,12 @@ namespace Stage_1.Week_4.InterfaceExercise
             Location = _location;
             UserName = _userName;
         }
+        public Device()
+        {
+            UserName = string.Empty;
+            Location = string.Empty;
+            DeviceType = string.Empty;
+        }
         // Devault Zoom Id
         public abstract Guid DevaultMessage();
     }

@@ -19,21 +19,6 @@ namespace Stage_1.Week_3.z_Competency
         public string LastName { get; set; }
         public string EmployeeType { get; set; }
 
-
-        // display file content constructor
-
-        // public Employee()
-        // {
-
-        // }
-        // public Employee(string[] lines)
-        // {
-        //     FirstName = lines[0];
-        //     LastName = lines[1];
-        //     EmployeeType = lines[2];
-
-        // }
-
         // polymorphism
         public abstract double Bonus(double bonus);
 

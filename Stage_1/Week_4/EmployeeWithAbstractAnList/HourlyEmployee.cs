@@ -17,8 +17,6 @@ namespace Stage_1.Week_3.z_Competency
         // Encapsulate properties
         public double HRate { get; set; }
 
-        //public Employee employee = new Employee;
-
         public HourlyEmployee(string employeeType, double hRate, string firstName, string lastName) : base(employeeType, firstName, lastName)
         {
             HRate = hRate;
@@ -31,11 +29,6 @@ namespace Stage_1.Week_3.z_Competency
             //HRate = HRate * (40 * 2);
             return bonus * (40 * 2);
         }
-        // display file content constructor
-        // public HourlyEmployee()
-        // {
-
-        // }
         public override string ToString()
         {
             return $"{FirstName.PadRight(20)}{LastName.PadRight(20)}{EmployeeType.PadRight(20)}{HRate.ToString()}";

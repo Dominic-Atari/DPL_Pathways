@@ -7,23 +7,21 @@ namespace Stage_1.Week_4.InterfaceExercise
         static void Main(string[] args)
         {
             // Computer users who joined the meeting
-            Computer computer = new Computer(string.Empty, string.Empty, string.Empty, string.Empty);
-            List<Computer> listComputers = new List<Computer>
-            {
+            // Using parameterless constructor.
+            Computer computers = new Computer();
+            List<Computer> computersList = new List<Computer>();
+            computersList.Add(new Computer("Jim", "Mac", "Lincoln", ""));
+            System.Console.WriteLine("\nMetting ID: " + computers.DevaultMessage());
 
-                new Computer( computer.UserName = "Jim",
-                                computer.DeviceType = "Mac",
-                                computer.Location = "Lincoln",
-                                computer.Time),
-            };
-            System.Console.WriteLine("\nMetting ID: " + computer.DevaultMessage());
-
-            foreach (Computer list in listComputers)
+            // using to string to print values
+            foreach (Computer list in computersList)
             {
                 System.Console.WriteLine(list);
             }
 
             // Computer users who did not joined the meeting.
+            // using parameter constructore
+            Computer computer = new Computer(string.Empty, string.Empty, string.Empty, string.Empty);
             List<Computer> listUbsentComputers = new List<Computer>
             {
                 new Computer( computer.UserName = "Val",
@@ -32,8 +30,7 @@ namespace Stage_1.Week_4.InterfaceExercise
                                 computer.Time)
             };
             // not using to string to print user who did not join the meeting.
-            System.Console.WriteLine($"\nFirst name: {computer.UserName}\nDevice type: {computer.DeviceType}\nLocation: {computer.Location}");
-            System.Console.WriteLine("Has Joined: " + computer.Joined());
+            System.Console.WriteLine($"First name: {computer.UserName}\nDevice type: {computer.DeviceType}\nLocation: {computer.Location}\nJoined At: {computer.Joined()}");
 
             // Phome users
             Phone phone = new Phone(string.Empty, string.Empty, string.Empty, string.Empty);

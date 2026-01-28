@@ -12,6 +12,13 @@ namespace Stage_1.Week_4.InterfaceExercise
         {
             Time = _time;
         }
+        public Computer()
+        {
+            UserName = string.Empty;
+            Location = string.Empty;
+            DeviceType = string.Empty;
+            Time = string.Empty;
+        }
         public bool Joined()
         {
             return false;
