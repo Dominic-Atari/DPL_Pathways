@@ -2,7 +2,7 @@ using System;
 
 namespace MusicApp
 {
-    public class MusicBase
+    public abstract class MusicBase
     {
         public string Type { get; set; }
 
@@ -19,5 +19,6 @@ namespace MusicApp
         {
             return "";
         }
+        //public abstract long SongViews();
     }
 }

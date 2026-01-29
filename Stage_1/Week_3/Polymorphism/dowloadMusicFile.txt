@@ -1,0 +1,31 @@
+song title, artist, duration, album, genre
+Love                Wizkid              200                 AFRO                Nigerian Pop        
+Dance               DJ Spinall          250                 AFRO                Afrobeat            
+Sunshine            Tekno               230                 AFRO                Afrobeat            
+Rhythm              Burna Boy           300                 AFRO                Afrobeat            
+Energy              Wizkid              220                 AFRO                Afrobeat            
+Kingdom             Olamide             240                 AFRO                Hip Hop             
+Freedom             Tiwa Savage         210                 AFRO                R&B                 
+Vibes               Yemi Alade          260                 AFRO                Afrobeat            
+Joy                 Simi                270                 AFRO                Afrobeat            
+Peace               Davido              280                 AFRO                Afrobeat            
+TUMFAR              ME                  200                 AFRO                SS                  
+Happiness           Adekunle Gold       230                 AFRO                Afrobeat            
+Blessings           Mr Eazi             250                 AFRO                Afrobeat            
+Celebrate           Rema                240                 AFRO                Afrobeat            
+Unity               Fireboy DML         220                 AFRO                Afrobeat            
+Hope                Joeboy              210                 AFRO                Afrobeat            
+Dreams              Naira Marley        260                 AFRO                Afrobeat            
+Smile               Ladipoe             270                 AFRO                Hip Hop             
+Light               Zlatan              280                 AFRO                Afrobeat            
+amazing_grace       Sinach              300                 GOSPEL              Gospel              
+Joyful_noise        Frank Edwards       320                 GOSPEL              Gospel              
+Victory             Mercy Chinwo        310                 GOSPEL              Gospel              
+Faith               Nathaniel Bassey    290                 GOSPEL              Gospel              
+Worship             Joe Praize          330                 GOSPEL              Gospel              
+Praise              Eben                340                 GOSPEL              Gospel              
+Glory               Tim Godfrey         350                 GOSPEL              Gospel              
+Hallelujah          Ada Ehi             360                 GOSPEL              Gospel              
+congratulations     Sinach              370                 GOSPEL              Gospel              
+Miracle             Tope Alabi          380                 GOSPEL              Gospel               
+HOME IS HERE        SKYLER              200                 Country             Am                  

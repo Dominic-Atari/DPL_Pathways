@@ -234,7 +234,7 @@ namespace Stage_1.Week_3.z_Competency
                             }
                             else
                             {
-                                using (StreamWriter read = new StreamWriter(mainFile1, append: true))
+                                using (StreamWriter writer = new StreamWriter(mainFile1, append: true))
                                 {
                                     int indexFound = 0;
                                     for (var list = 0; list < hourlyList.Count; list++)
@@ -248,7 +248,7 @@ namespace Stage_1.Week_3.z_Competency
                                     if (indexFound != 0)
                                     {
                                         var s = hourlyList[indexFound];
-                                        read.WriteLine($"{s.FirstName.PadRight(20)}{s.LastName.PadRight(20)}{s.EmployeeType.PadRight(20)}{s.HRate}"); // write data to file line by line.
+                                        writer.WriteLine($"{s.FirstName.PadRight(20)}{s.LastName.PadRight(20)}{s.EmployeeType.PadRight(20)}{s.HRate}"); // write data to file line by line.
                                         Console.WriteLine("Hourly employee data stored successfully.");
                                         // clear after saving
                                         hourlyList.Clear();
