@@ -1,5 +1,3 @@
-using System;
-
 namespace DPL_PATHWAYS.Stage_1.Week_5.Chalange
 {
     public class ExecutiveMembership : Membership, ISpecialOffer

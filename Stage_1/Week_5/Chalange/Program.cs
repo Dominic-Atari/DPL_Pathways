@@ -1,6 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Runtime.ConstrainedExecution;
-using System.Xml;
 namespace DPL_PATHWAYS.Stage_1.Week_5.Chalange
 {
 
@@ -73,10 +71,8 @@ namespace DPL_PATHWAYS.Stage_1.Week_5.Chalange
     {
         static void Main(string[] args)
         {
-            //use deictionary to store all members
+            //using deictionary to store all members
             Dictionary<Guid, Membership> allMembers = new Dictionary<Guid, Membership>();
-
-
 
             // ADMINISTRATIVE MENUE
             bool exit = false;
@@ -188,6 +184,7 @@ namespace DPL_PATHWAYS.Stage_1.Week_5.Chalange
                                 System.Console.WriteLine(member);
                             }
                         }
+
 
                         break;
                     // Update an existing membership email based on ID.

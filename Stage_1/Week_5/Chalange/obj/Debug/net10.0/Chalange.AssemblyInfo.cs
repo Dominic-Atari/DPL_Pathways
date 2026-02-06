@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Chalange")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86fcf617de194b4dbcc535b0b15422f7683adc36")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5695d66b4424d9937b005055c4bb342cca489d2d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Chalange")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Chalange")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
