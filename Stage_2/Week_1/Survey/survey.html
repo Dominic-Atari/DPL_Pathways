@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+
+    <link rel="stylesheet" href="survey.css">
+    <script src="survey.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Anchovy Survey</h1>
+        </header>
+        <form>
+            <div>
+                <p>Follow the following instructions to complete the survey.</p>
+                <h5 class="names">First name</h5>
+            </div>
+            <div>
+                <input type="text" id="firstName" name="firstName" placeholder="first name" required />
+                <h5 class="names">Last name</h5>
+                <input type="text" id="lasttName" name="lastName" placeholder="last name" required />
+            </div>
+            <div>
+                <p>How satisfied are you with your experience today? </p>
+                <span>Good</span>
+                <input type="checkbox" class="checkbox">
+                <span>Bad</span>
+                <input type="radio" class="checkbox">
+                <p> Is our product/service meet your expectations? </p>
+                <span>Yes</span>
+                <input type="checkbox" class="checkbox">
+                <span>No</span>
+                <input type="radio" class="checkbox">
+                <p>What other products or services should we offer?</p>
+                <input type="text" class="checkbox">
+            </div>
+            <div>
+                <p>Which features of our service impressed you the most?</p>
+                <select name="notes" id="notes" placeholder="Select an option">
+                    <option value="item1" class="value">Cookbooks view and proces</option>
+                    <option value="item1" class="value">Comments</option>
+                    <option value="item1" class="value">Market Place</option>
+                    <option value="item1" class="value">Recipe sharing</option>
+                    <option value="item1" class="value">Market Place</option>
+                </select>
+            </div>
+            <div>
+                <p>How easy is it to navigate our App?</p>
+                <span>Easy</span>
+                <input type="checkbox" class="checkbox">
+                <span>Hard</span>
+                <input type="checkbox" class="checkbox">
+            </div>
+
+            <br><br>
+            <button id="btn" onclick=clk()>SUBMIT</button>
+            <p id="message"> </p>
+        </form>
+    </div>
+
+</body>
+
+</html>

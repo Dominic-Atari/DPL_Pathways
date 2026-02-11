@@ -69,12 +69,16 @@ namespace DPL_PATHWAYS.Stage_1.Week_5.Chalange
     */
     class Program
     {
+        static Dictionary<Guid, Membership> allMembers = new Dictionary<Guid, Membership>();
+
+
+
         static void Main(string[] args)
         {
             //using deictionary to store all members
-            Dictionary<Guid, Membership> allMembers = new Dictionary<Guid, Membership>();
-
-            // ADMINISTRATIVE MENUE
+            Guid guid1 = Guid.NewGuid();
+            allMembers.Add(guid1, new RegularMembership(guid1, "Example@example.com", 100.0m, 500.0f, "Regular"));
+            // ADMINISTRATIVE MENU
             bool exit = false;
             do
             {
@@ -190,12 +194,9 @@ namespace DPL_PATHWAYS.Stage_1.Week_5.Chalange
                     // Update an existing membership email based on ID.
                     case "U":
                         System.Console.WriteLine("Verify the ID");
-                        Guid guid;
+
                         Guid IdFound = Guid.Empty;
-                        while (!Guid.TryParse(Console.ReadLine(), out guid) && !allMembers.ContainsKey(guid))
-                        {
-                            System.Console.WriteLine("Error: Id not verified. Try again...");
-                        }
+                        Guid guid = VerifyId();
                         foreach (var member in allMembers)
                         {
                             if (member.Key.Equals(guid))
@@ -389,6 +390,14 @@ namespace DPL_PATHWAYS.Stage_1.Week_5.Chalange
                 }
             } while (!exit);
         }
-
+        public static Guid VerifyId()
+        {
+            Guid guid = Guid.Empty;
+            while (!Guid.TryParse(Console.ReadLine()?.Trim(), out guid) && !allMembers.ContainsKey(guid))
+            {
+                System.Console.WriteLine("Id not verified: Please try again");
+            }
+            return guid;
+        }
     }
 }

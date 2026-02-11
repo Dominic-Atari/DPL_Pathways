@@ -1,0 +1,37 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 20px;
+    line-height: 1.5;
+    background-color: rgb(223, 240, 247);
+
+}
+
+h1 {
+    color: rgb(67, 112, 238);
+    line-height: 1.5;
+
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+
+}
+
+.names {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+    font-size: 100%;
+}
+
+#firstName,
+#lasttName {
+    border: solid rgb(169, 165, 165);
+    width: 100%;
+    height: 30px;
+    text-align: bottom;
+    border-radius: 5px;
+}
