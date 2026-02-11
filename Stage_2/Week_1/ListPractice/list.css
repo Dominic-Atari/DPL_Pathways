@@ -1,0 +1,18 @@
+#mainDiv,
+.lists {
+    display: flex;
+}
+
+h2 {
+    padding-left: 40px;
+}
+
+#btn {
+    margin-left: 40px;
+}
+
+.flexStyle {
+    display: block;
+    padding-right: 50px;
+
+}

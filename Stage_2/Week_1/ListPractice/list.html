@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with list</title>
+
+    <link rel="stylesheet" href="list.css">
+    <script src="list.js"></script>
+</head>
+
+<body>
+    <h2>Practicing with list</h2>
+    <div id="mainDiv">
+        <div class="formDiv">
+            <form>
+                <li>
+                    <ul>
+                        Enter a word <input type="text" id="wordId">
+                    </ul>
+                </li>
+            </form>
+            <form>
+                <li>
+                    <ul>
+                        Chose a list <input type="number" id="numberId">
+                    </ul>
+                </li>
+            </form>
+            <button id="btn" onclick="sendToList()">SUBMIT</button>
+        </div>
+        <div class="lists">
+            <ul class="flexStyle">
+                <div class="tableAndList">
+                    <label>List 1</label>
+                    <table id="table1ID"></table>
+                </div>
+                <div>
+                    <button id="clearTable1" class="clear" onclick="clearTable1()">clear</button>
+                </div>
+            </ul>
+            <ul>
+                <label>List 2</label>
+                <table id="table2ID"></table>
+                <div>
+                    <button id="clearTable2" class="clear" onclick="clearTable2()">clear</button>
+                </div>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
