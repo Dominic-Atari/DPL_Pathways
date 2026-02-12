@@ -13,5 +13,4 @@ function showAlert() {
         end--;
     }
     document.getElementById("showResultPalindrome").innerHTML = true;
-
 }
