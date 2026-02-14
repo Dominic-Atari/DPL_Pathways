@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="todoList.css">
+<script src="todoList.js"></script>
+
+<body>
+    <!--The user will be able to add an item to the to-do list and see the updated list.
+The user will be able to remove an item from the to-do list and see the updated list.
+The user will be able to clear all items from the list and see the updated list.
+Optional: The user will be able to mark an item as complete.-->
+    <h2>To-Do List</h2>
+    <div class="generalGrid">
+        <section class="sections">
+            <form name="formName">
+                <div class="lbl">
+                    Enter a task <br><input type="text" id="item" placeholder="enter here"><br>
+                </div>
+                <button type="button" onclick="addItem()" class="btns">Add item</button>
+                <button type="button" id="removeBtn" onclick="removeItem()" class="btns">Remove item</button>
+                <button type="button" onclick="clearItemsInList()" class="btns">Clear list</button>
+                <button type="button" id="completeBtn" onclick="markItemComplete()" class="btns">Mark complete</button>
+                <button type="button" onclick="clearCompletedTasks()" class="btns">Clear completed list</button>
+            </form>
+        </section>
+
+        <section class="result">
+            <div>
+                <label for="text" class="lbl">Tasks</label>
+                <table id="taskList"></table>
+            </div>
+            <div>
+                <label for="text" class="lbl">Conpleted</label>
+                <table id="completedList"></table>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

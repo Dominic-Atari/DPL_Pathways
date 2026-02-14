@@ -1,0 +1,15 @@
+.generalGrid {
+    display: grid;
+    place-items: center;
+    height: 20vh;
+}
+
+.result {
+    height: auto;
+    width: auto;
+}
+
+h2 {
+    display: grid;
+    place-items: center;
+}

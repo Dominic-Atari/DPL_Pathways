@@ -1,0 +1,123 @@
+body {
+    font: 100%/1.5 Arial, Helvetica, sans-serif;
+    background-color: rgb(90, 84, 76);
+    font-size: 25px;
+    border: solid rgb(98, 174, 149);
+    background: linear-gradient(to right, rgb(98, 174, 149), rgb(0, 98, 244)) fixed;
+    height: 100px;
+}
+
+.generalGrid {
+    display: flex;
+    border: solid rgba(0, 0, 0, .189);
+    height: 300px;
+    justify-content: center;
+    flex: content;
+    background-color: rgb(144, 144, 237);
+
+}
+
+.result {
+    display: flex;
+    justify-content: space-around;
+    flex: content;
+    overflow: auto;
+    padding-right: 100px;
+    background: linear-gradient(to right, rgb(98, 174, 149), rgb(0, 98, 244)) fixed;
+    background: linear-gradient(to bottom, rgb(98, 174, 149), rgb(0, 98, 244)) fixed;
+}
+
+.lbl {
+    color: rgb(0, 223, 244);
+    text-shadow: rgb(0, 0, 0) 1px 1px 2px;
+}
+
+h2 {
+    display: block;
+    text-align: center;
+    color: rgb(0, 98, 244);
+    animation: h2 1s ease-in-out infinite;
+    text-shadow: rgb(0, 0, 0) 1px 1px 2px;
+}
+
+@keyframes h2 {
+    0% {
+        color: rgb(0, 98, 244);
+    }
+
+    50% {
+        color: rgb(98, 174, 149);
+    }
+
+    100% {
+        color: rgb(0, 98, 244);
+    }
+}
+
+.sections {
+    display: flex;
+    justify-content: space-around;
+    flex: content;
+    background: linear-gradient(to right, rgb(165, 227, 206), rgb(0, 98, 244)) fixed;
+    background: linear-gradient(to bottom, rgb(98, 174, 149), hsl(216, 100%, 48%)) fixed;
+}
+
+.btns {
+    background-color: rgb(164, 86, 238);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background: linear-gradient(to right, rgb(98, 174, 149), rgb(0, 98, 244)) fixed;
+    box-shadow: inset 0px 0px 5px rgb(255, 255, 255);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.btns:hover {
+    background-color: rgb(101, 101, 241);
+    color: rgb(0, 0, 0);
+    background: linear-gradient(to right, rgb(107, 73, 241), rgb(153, 183, 228)) fixed;
+    border-color: rgb(21, 15, 15);
+    transform: translateX(1px);
+    box-shadow: inset 0px 0px 5px rgb(255, 255, 255);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 1.5);
+    transition: all 0.4s ease-in-out;
+}
+
+@media screen and (max-width: 600px) {
+    .generalGrid {
+        flex-direction: column;
+        height: auto;
+        height: auto;
+    }
+
+    .result {
+        flex-direction: column;
+        padding-right: 0;
+    }
+
+    h2 {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .sections {
+        flex-direction: column;
+    }
+
+    .btns {
+        display: flex;
+        overflow: auto;
+    }
+
+}
+
+@media screen and (max-width: 950px) {
+    table {
+        display: flex;
+        flex-direction: column;
+        padding-right: 100px;
+    }
+}

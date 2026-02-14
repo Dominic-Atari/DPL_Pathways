@@ -6,7 +6,7 @@ function sendToList() {
 
 
     if (word === "") {
-        alert("You have not entered anything")
+        alert("You have not entered anything");
         return;
     }
     var wordOnly = /^[a-zA-Z]+$/;
