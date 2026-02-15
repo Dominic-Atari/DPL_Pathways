@@ -1,67 +1,125 @@
-let list = []; // an array to store the list of items. accessed  by all functions in the script.
-let complete = new Set(); // a set to store the removed items. accessed by all functions in the script.
-let storeWord = ""; // a variable to store the word to be removed. accessed by all functions in the script.
-var validInput = /^[a-zA-Z]+$/;
-function addItem() {
-    let word = document.getElementById("item").value;
-    let list1 = document.getElementById("taskList");
+//let list = []; // an array to store the list of items.
+//let complete = new Set(); // a set to store the removed items.
+//let storeWord = ""; // a variable to store the word to be removed.
+//var validInput = /^[a-zA-Z ]+$/; // check if the input is valid (letters and spaces only).
 
+// for re numbering list if the element is removed from task and added to completed.
+//function renumberTaskList() {
+//     var list1 = document.getElementById("taskList");
+//     if (!list1) return;
 
-    if (word === "") {
-        alert("nothing to add");
-        return;
-    }
-    else if (!validInput.test(word)) {
-        alert("Cant add empty entries");
-        return;
-    }
-    else {
-        let w = list.push(word); // add the index to the array and return the new length of the list.
-        list1.insertRow(list1.rows.length).innerHTML = w + " " + word;
-        //list.push(word); // store the word in the storeList array.
-        document.getElementById("item").value = "";
+//     for (let i = 0; i < list.length; i++) {
+//         if (list1.rows[i] && list1.rows[i].cells[0]) {
+//             list1.rows[i].cells[0].textContent = (i + 1);
+//             if (list1.rows[i].cells[1]) {
+//                 list1.rows[i].cells[1].textContent = list[i];
+//             }
+//         }
+//     }
+// }
+
+// function addItem() {
+//     let word = document.getElementById("item").value;
+//     let list1 = document.getElementById("taskList");
+
+//     if (word === "") {
+//         alert("nothing to add");
+//         return;
+//     }
+//     else if (!validInput.test(word)) {
+//         alert("Error: Invalid input. Please enter a valid item name (letters only).");
+//         return;
+//     }
+//     else {
+//         for (let i = 0; i < list.length; i++) {
+//             if (list[i] === word) {
+//                 alert("Sorry: No duplicates allowed!");
+//                 return;
+//             }
+//         }
+
+//         list.push(word);
+
+//         var row = list1.insertRow(-1);
+//         row.insertCell(0).textContent = list.length;
+//         row.insertCell(1).textContent = word;
+
+//         document.getElementById("item").value = "";
+//         renumberTaskList();
+
+        // JUST FOR LEARNING PURPOSES TO ADD CHECKBOX IN SPECIFIC CELL IN THE TABLE
+        // var cell = row.insertCell(1); // second cell
+        // var checkbox = document.createElement("input");
+        // checkbox.type = "checkbox";
+        // cell.appendChild(checkbox);
+        // checkbox.addEventListener("change", function () {
+        //     if (this.checked) {
+        //         complete.add(word); // add the word to the set of completed items.
+        //         list1.rows[this.parentNode.parentNode.rowIndex].style.textDecoration = "line-through"; // cross out the item in the list.
+        //         let completedList = document.getElementById("completedList");
+        //         completedList.insertRow(completedList.rows.length).innerHTML = word; // add the word to the completed list.
+        //     } else {
+        //         complete.delete(word); // remove the word from the set of completed items.
+        //         list1.rows[this.parentNode.parentNode.rowIndex].style.textDecoration = "none"; // remove the cross out from the item in the list.
+        //         let completedList = document.getElementById("completedList");
+        //         for (let i = 0; i < completedList.rows.length; i++) {
+        //             if (completedList.rows[i].cells[0].innerHTML === word) {
+        //                 completedList.deleteRow(i); // remove the row from the completed list.
+        //                 break;
+        //             }
+        //         }
+        //    }
+        //});
+
     }
 }
 
-//REMOVE ITEM FROM THE LIST
+// remove a specific item.
 function removeItem() {
-    //var getList = document.getElementById("taskList");
     var getItem = document.getElementById("item").value;
 
     if (getItem === "") {
         alert("Sorry: Connot delete empty entries");
         return;
     }
-
     else if (!validInput.test(getItem)) {
-        alert("Sorry: Item not found in the list");
+        alert("Error: Invalid input. Please enter a valid item name (letters only).");
         return;
     }
-    else if (list.includes(getItem)) {
+    else {
         var getList = document.getElementById("taskList");
 
-        let index = list.indexOf(getItem); // get the index of the word to be removed.
-        list.splice(index, (1 - 1)); // remove the word amd index from the list array.
-        getList.deleteRow(index); // remove the row from the table.
-        alert("Item:[" + getItem + "] removed succefully");
-        document.getElementById("item").value = "";
-    }
-    else {
-        alert("Sorry: Item not found!");
+        let indexFound = -1;
+        for (let i = 0; i < list.length; i++) {
+            if (list[i] === getItem) {
+                indexFound = i;
+                break;
+            }
+        }
+        if (indexFound !== -1) {
+            list.splice(indexFound, 1);
+            getList.deleteRow(indexFound);
+            alert("Item:[" + getItem + "] removed succefully");
+            document.getElementById("item").value = "";
+            renumberTaskList();
+        }
+        else {
+            alert("Sorry: Item not found!");
+        }
     }
 }
-
-// CLEAR THE LIST OF ITEMS
+// Clear list of items
 function clearItemsInList() {
     let list1 = document.getElementById("taskList");
     document.getElementById("item").value = "";
-    if (list.length === 0) {
+    if (list1.rows.length === 0) {
         alert("Nothing to clear");
         return;
     }
     list1.innerHTML = ""; // clear the table by setting its innerHTML to an empty string.
-    list = []; // clear the list array by setting it to an empty array.
+    list = []; // clear array.
 }
+
 function markItemComplete() {
     let word = document.getElementById("item").value;
     let completedList = document.getElementById("completedList");
@@ -71,24 +129,36 @@ function markItemComplete() {
         return;
     }
     else if (!validInput.test(word)) {
-        alert("Item not found in the list");
+        alert("Set Error: Invalid input. Please enter a valid item name (letters only).");
         return;
     }
     else {
-        if (document.getElementById("completeBtn")) {
-            complete.add(word); // add the word to the set of completed items.
-            completedList.insertRow(completedList.rows.length).innerHTML = word; // add the word to the completed list.
+        if (list.includes(word)) {
+            complete.add(word);
+            completedList.insertRow(completedList.rows.length).innerHTML = word;
             document.getElementById("item").value = "";
             alert("Item:[" + word + "] marked complete succefully");
 
-            if (list.includes(word)) {
-                list.splice(list.indexOf(word), 1); // remove the word from the list array.
-                let getList = document.getElementById("taskList");
-                getList.deleteRow(getList.rows.length - 1); // remove the last row from the table.
+            var itemFound = -1;
+            for (var i = 0; i < list.length; i++) {
+                if (list[i] === word) {
+                    itemFound = i;
+                    break;
+                }
+            }
+            if (itemFound !== -1) {
+                var getList = document.getElementById("taskList");
+                list.splice(itemFound, 1);
+                getList.deleteRow(itemFound);
+                renumberTaskList();
+            }
+            else {
+                alert("Error: Item not found.");
             }
         }
     }
 }
+// Clear complete tasks.
 function clearCompletedTasks() {
     let completedList = document.getElementById("completedList");
     document.getElementById("item").value = "";
@@ -96,6 +166,6 @@ function clearCompletedTasks() {
         alert("Nothing to clear");
         return;
     }
-    completedList.innerHTML = ""; // clear the table by setting its innerHTML to an empty string.
-    complete.clear(); // clear the set of completed items.
+    completedList.innerHTML = ""; // clear the table, innerHTML to an empty string.
+    complete.clear(); // clear completed items.
 }
