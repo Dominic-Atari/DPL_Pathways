@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit API - TypeScript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reddit.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-57x57.png" width="50">
+        <h1>Reddit API Viewer</h1>
+        <p>Trending posts mentioning "Trump"</p>
+    </header>
+
+    <section class="search-section">
+        <label for="input">Subreddits:</label>
+        <select id="input">
+            <option id="politics">Politics</option>
+            <option id="hot">Hot</option>
+            <option id="new">New</option>
+            <option id="top">Top</option>
+            <option id="sports">Sports</option>
+        </select>
+
+        <button id="submitBtn" onclick="btn()">Search</button>
+    </section>
+
+    <section>
+        <div id="redditImage" class="results"></div>
+    </section>
+    <script src="js/reddit.js"></script>
+</body>
+
+</html>

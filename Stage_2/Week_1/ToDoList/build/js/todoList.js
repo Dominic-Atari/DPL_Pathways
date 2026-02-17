@@ -1,7 +1,7 @@
 "use strict";
 var list = [];
 var complete = new Set();
-var storeWord = "";
+//var storeWord: string = "";
 function isValidInput(word) {
     return /^[a-zA-Z ]+$/.test(word);
 }
@@ -185,20 +185,20 @@ function clearCompletedItems() {
     complete.clear();
     alert("Items cleared successfully.");
 }
-// // Make items clickble
-// document.addEventListener("DOMContentLoaded", function () {
-//     const taskTable = document.getElementById("completedList") as HTMLTableElement | null;
-//     if (taskTable) {
-//         taskTable.addEventListener("click", function (event) {
-//             const target = event.target as HTMLElement;
-//             if (target.tagName === "TD") {
-//                 const row = target.parentElement as HTMLTableRowElement;
-//                 const itemText = row.cells[1].textContent || "";
-//                 // display form to showing date and time of completion
-//                 const completionTime = new Date().toLocaleString();
-//                 document.createAttribute("data-completion-time").value = completionTime;
-//                 alert(`Task: ${itemText}\nCompleted on: ${completionTime}`);
-//             }
-//         });
-//     }
-// });
+// Make items clickble
+document.addEventListener("DOMContentLoaded", function () {
+    const taskTable = document.getElementById("completedList");
+    if (taskTable) {
+        taskTable.addEventListener("click", function (event) {
+            const target = event.target;
+            if (target.tagName === "TD") {
+                const row = target.parentElement;
+                const itemText = row.cells[1].textContent || "";
+                // display form to showing date and time of completion
+                const completionTime = new Date().toLocaleString();
+                document.createAttribute("data-completion-time").value = completionTime;
+                alert(`Task: ${itemText}\nCompleted on: ${completionTime}`);
+            }
+        });
+    }
+});

@@ -13,5 +13,6 @@
   "dotnet.server.useOmnisharp": false,
   "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "openFiles",
   "dotnet.backgroundAnalysis.compilerDiagnosticsScope": "openFiles",
-  "dotnet.preferCSharpExtension": true
+  "dotnet.preferCSharpExtension": true,
+  "liveServer.settings.port": 5501
 }
