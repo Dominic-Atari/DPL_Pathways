@@ -8,6 +8,10 @@ async function fetchData() {
         console.log(data);
         const stage = document.getElementById("divId");
         stage.innerHTML = "";
+        var userFound = false;
+        var countUsers = 0;
+        while (countUsers < data.length)
+            ;
     }
     catch (error) {
         alert("Error: url not found" + error);
