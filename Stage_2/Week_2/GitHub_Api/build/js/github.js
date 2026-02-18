@@ -27,7 +27,8 @@ async function fetchData() {
                     <h3 style="color: #ffffff;">${user.login}</h3>
                     <img src="${user.avatar_url}" 
                          width="100" 
-                         style="border-radius:50%;">
+                         style="border-radius:50%; 
+                         border: 1px solid #dcdbdbff;">
                     <br><br>
                     <a href="${user.html_url}" >
                         View Profile
