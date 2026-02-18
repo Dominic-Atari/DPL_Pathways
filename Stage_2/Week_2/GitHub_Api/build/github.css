@@ -3,15 +3,21 @@ body {
     margin: 0;
     padding: 20px;
     color: #000000;
-    padding-left: 35%;
-}
-
-header {
-    padding-left: 15%;
-    margin-bottom: 30px;
-}
-
-.logo {
-    padding-left: 130px;
     text-align: center;
+}
+
+#userContentId {
+    margin-bottom: 15px;
+    background-color: #4b4b4b;
+    padding: 15px;
+    border-radius: 8px;
+    width: 50%;
+}
+
+#divId {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
