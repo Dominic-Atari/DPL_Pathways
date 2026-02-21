@@ -8,5 +8,13 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('First-angular-app');
+  title = 'First-angular-app';
+  sum1 = 0;
+
+  public myfunction(): number {
+    const firstNumber = 10;
+    const secondNumber = 20;
+    const sum = firstNumber + secondNumber;
+    return sum;
+  }
 }

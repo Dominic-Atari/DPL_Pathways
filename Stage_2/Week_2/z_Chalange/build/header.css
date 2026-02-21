@@ -1,0 +1,63 @@
+header>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+#headerActions {
+    display: flex;
+    gap: 20px;
+}
+
+#menuToggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#mobileMenu {
+    display: none;
+    background-color: #333;
+    color: #ffffff;
+    padding: 10px 20px;
+    gap: 16px;
+}
+
+#mobileMenu a,
+#mobileMenu span {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#donate {
+    color: white;
+    text-decoration: none;
+    margin: auto;
+    font-size: 1.2em;
+}
+
+#call {
+    font-size: 2.5em;
+}
+
+#call:hover {
+    cursor: pointer;
+    color: #ffffff;
+}
+
+#planeLogo {
+    font-size: 5.5em;
+    cursor: pointer;
+}
+
+#planeLogo:hover {
+    font-size: 5.5em;
+    cursor: pointer;
+}
