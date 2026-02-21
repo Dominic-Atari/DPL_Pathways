@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/Day_2/FileHandling/File_1/File_1.csproj": {}
+    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/FileHandling/File_1/File_1.csproj": {}
   },
   "projects": {
-    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/Day_2/FileHandling/File_1/File_1.csproj": {
+    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/FileHandling/File_1/File_1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/Day_2/FileHandling/File_1/File_1.csproj",
+        "projectUniqueName": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/FileHandling/File_1/File_1.csproj",
         "projectName": "File_1",
-        "projectPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/Day_2/FileHandling/File_1/File_1.csproj",
+        "projectPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/FileHandling/File_1/File_1.csproj",
         "packagesPath": "/Users/dominicobiala/.nuget/packages/",
-        "outputPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/Day_2/FileHandling/File_1/obj/",
+        "outputPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/FileHandling/File_1/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/dominicobiala/.nuget/NuGet/NuGet.Config"

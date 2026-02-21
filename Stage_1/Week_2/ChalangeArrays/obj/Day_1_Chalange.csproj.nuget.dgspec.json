@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/Day_1/Day_1_Chalange/Day_1_Chalange.csproj": {}
+    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/ChalangeArrays/Day_1_Chalange.csproj": {}
   },
   "projects": {
-    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/Day_1/Day_1_Chalange/Day_1_Chalange.csproj": {
+    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/ChalangeArrays/Day_1_Chalange.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/Day_1/Day_1_Chalange/Day_1_Chalange.csproj",
+        "projectUniqueName": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/ChalangeArrays/Day_1_Chalange.csproj",
         "projectName": "Day_1_Chalange",
-        "projectPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/Day_1/Day_1_Chalange/Day_1_Chalange.csproj",
+        "projectPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/ChalangeArrays/Day_1_Chalange.csproj",
         "packagesPath": "/Users/dominicobiala/.nuget/packages/",
-        "outputPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/Day_1/Day_1_Chalange/obj/",
+        "outputPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/ChalangeArrays/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/dominicobiala/.nuget/NuGet/NuGet.Config"

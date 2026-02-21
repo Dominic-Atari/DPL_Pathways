@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/FeetToInches/FeetToInches.csproj": {}
+    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/a_FeetToInches/FeetToInches.csproj": {}
   },
   "projects": {
-    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/FeetToInches/FeetToInches.csproj": {
+    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/a_FeetToInches/FeetToInches.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/FeetToInches/FeetToInches.csproj",
+        "projectUniqueName": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/a_FeetToInches/FeetToInches.csproj",
         "projectName": "FeetToInches",
-        "projectPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/FeetToInches/FeetToInches.csproj",
+        "projectPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/a_FeetToInches/FeetToInches.csproj",
         "packagesPath": "/Users/dominicobiala/.nuget/packages/",
-        "outputPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/FeetToInches/obj/",
+        "outputPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/a_FeetToInches/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/dominicobiala/.nuget/NuGet/NuGet.Config"

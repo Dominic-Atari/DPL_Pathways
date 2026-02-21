@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/e_Week_1_Chalages/Chalange_1/Chalange_1.csproj",
+      "projectUniqueName": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/e_Week_1_Chalanges/Chalange_1/Chalange_1.csproj",
       "projectName": "Chalange_1",
-      "projectPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/e_Week_1_Chalages/Chalange_1/Chalange_1.csproj",
+      "projectPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/e_Week_1_Chalanges/Chalange_1/Chalange_1.csproj",
       "packagesPath": "/Users/dominicobiala/.nuget/packages/",
-      "outputPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/e_Week_1_Chalages/Chalange_1/obj/",
+      "outputPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/e_Week_1_Chalanges/Chalange_1/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/dominicobiala/.nuget/NuGet/NuGet.Config"

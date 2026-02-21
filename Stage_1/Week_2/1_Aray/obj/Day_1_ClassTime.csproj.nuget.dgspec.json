@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/Day_1/Day_1_ClassTime/Day_1_ClassTime.csproj": {}
+    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/1_Aray/Day_1_ClassTime.csproj": {}
   },
   "projects": {
-    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/Day_1/Day_1_ClassTime/Day_1_ClassTime.csproj": {
+    "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/1_Aray/Day_1_ClassTime.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/Day_1/Day_1_ClassTime/Day_1_ClassTime.csproj",
+        "projectUniqueName": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/1_Aray/Day_1_ClassTime.csproj",
         "projectName": "Day_1_ClassTime",
-        "projectPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/Day_1/Day_1_ClassTime/Day_1_ClassTime.csproj",
+        "projectPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/1_Aray/Day_1_ClassTime.csproj",
         "packagesPath": "/Users/dominicobiala/.nuget/packages/",
-        "outputPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/Day_1/Day_1_ClassTime/obj/",
+        "outputPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_2/1_Aray/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/dominicobiala/.nuget/NuGet/NuGet.Config"

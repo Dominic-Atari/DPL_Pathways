@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Validation/Validation.csproj",
+      "projectUniqueName": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/c_Validation/Validation.csproj",
       "projectName": "Validation",
-      "projectPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Validation/Validation.csproj",
+      "projectPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/c_Validation/Validation.csproj",
       "packagesPath": "/Users/dominicobiala/.nuget/packages/",
-      "outputPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Validation/obj/",
+      "outputPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/c_Validation/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/dominicobiala/.nuget/NuGet/NuGet.Config"

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/Convertings.csproj",
+      "projectUniqueName": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/b_Convertings/Convertings.csproj",
       "projectName": "Convertings",
-      "projectPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/Convertings.csproj",
+      "projectPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/b_Convertings/Convertings.csproj",
       "packagesPath": "/Users/dominicobiala/.nuget/packages/",
-      "outputPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/Convertings/obj/",
+      "outputPath": "/Users/dominicobiala/DPL_Pathways/Stage_1/Week_1/b_Convertings/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/dominicobiala/.nuget/NuGet/NuGet.Config"
