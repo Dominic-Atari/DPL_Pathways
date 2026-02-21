@@ -1,0 +1,110 @@
+Employee Management System
+Object-Oriented Design in C#
+# Project Overview
+
+This project is a structured implementation of an Employee Management System built in C# to demonstrate strong foundational software engineering principles.
+
+Rather than focusing only on functionality, this project emphasizes:
+
+Clean object-oriented architecture
+
+Separation of concerns
+
+Extensibility without modifying existing logic
+
+Proper use of runtime polymorphism
+
+The system models multiple employee types and dynamically calculates bonuses using inheritance and method overriding.
+
+# Architecture & Design
+
+The system is built around a base Employee class that defines shared properties and behavior, including:
+
+Name
+
+Id
+
+CalculateBonus() (virtual method)
+
+ToString() (formatted output)
+
+Specialized employee types extend this base class:
+
+HourlyEmployee
+
+SalaryEmployee
+
+Each derived class overrides CalculateBonus() with its own implementation, allowing the system to process employees generically while executing type-specific behavior at runtime.
+
+This eliminates conditional logic (if/switch) and casting, demonstrating proper polymorphic design.
+
+# Key Engineering Decisions
+1️⃣ Business Logic Inside Domain Classes
+
+Bonus calculations are encapsulated within each employee type.
+The Main program orchestrates execution but does not perform calculations.
+
+This enforces single responsibility and improves maintainability.
+
+2️⃣ Constructor Chaining
+
+Derived classes pass shared properties to the base class constructor, ensuring consistent and reliable object initialization.
+
+3️⃣ Polymorphic Processing
+
+Employees are stored in a single collection:
+
+List<Employee> employees = new List<Employee>();
+
+The system processes all employee types uniformly:
+
+foreach (Employee emp in employees)
+{
+    Console.WriteLine(emp.CalculateBonus());
+}
+
+The correct overridden method executes at runtime without type checking.
+
+This demonstrates clean extensibility and adherence to the Open/Closed Principle.
+
+# Concepts Demonstrated
+
+Encapsulation
+
+Inheritance
+
+Runtime polymorphism
+
+Method overriding
+
+Constructor chaining
+
+Clean class design
+
+Separation of responsibilities
+
+# Why This Project Matters
+
+This project reflects deliberate practice in designing maintainable C# applications rather than writing procedural logic inside Main.
+
+It demonstrates:
+
+Ability to structure scalable domain models
+
+Understanding of object-oriented design patterns
+
+Awareness of clean architecture principles
+
+Readiness for real-world backend development
+
+# Planned Enhancements
+
+File persistence for employee data
+
+Unit testing using AAA (Arrange–Act–Assert)
+
+Interface-based bonus strategy pattern
+
+Dependency injection for extensibility
+
+Validation layer for input safety
