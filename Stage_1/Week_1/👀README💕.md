@@ -28,4 +28,4 @@ Introduces **guard clauses** and repeated prompting. The program keeps asking un
 Explores **iteration**. You learn how to repeat actions, count, and control flow using `for` and `while` loops.
 
 ### `e_Week_1_Chalanges`
-Combines the week’s ideas into mini‑challenges that require clean input handling, conversion, and looping.
+Combines the week’s ideas into mini‑challenges that require clean input handling, conversion, and looping..
