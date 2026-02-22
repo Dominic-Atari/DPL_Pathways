@@ -56,7 +56,7 @@ async function currentFlights() {
     (window as any).globalResponse = data;
     //alert(api_url);
 
-    // display current time in seconds
+    // show the current time
     var timeNow = new Date().toLocaleTimeString();
     currentTime.innerHTML = timeNow;
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="museum.css">
+</head>
+
+<body>
+
+    <header id="header">
+        <div>
+            <span href="" id="museumLogo" onclick="listOptions()">🏛️</span>
+            <h1>Metropolitan Museum of Art</h1>
+            <button id="menuToggle" aria-label="Open menu">☰</button>
+
+        </div>
+        <div id="mobileMenu">
+            <a href="" id="donateMobile" onclick="showDonateModal()" placeholder="image here!">Donate</a>
+            <span id="callMobile" onclick="showCallModal()">📞</span>
+        </div>
+    </header>
+
+    <section id="mainBodyContent">
+        <img src="images/museum.png" alt="" id="image">
+        <section id="museumInfo">
+            <button id="currentExhibitions">What is happening?</button>
+            <h3>Current Exhibitions</h3>
+            <div id="objectProperties"></div>
+            <h3>Measurements</h3>
+            <div id="measurementProperties"></div>
+
+        </section>
+    </section>
+    <script src="js/museum.js"></script>
+</body>
+
+</html>
