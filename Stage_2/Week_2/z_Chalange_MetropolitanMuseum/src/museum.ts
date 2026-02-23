@@ -1,186 +1,191 @@
-document.addEventListener("DOMContentLoaded", function () {
-    //loadExhibitions();
-    setTimeout(() => {
+// LOAD EXHIBITION AUTOMATICALLY.
+document.addEventListener("DOMContentLoaded", () => {
+    loadObjectIds();
+
+    // Change artwork every 10 seconds
+    setInterval(() => {
         loadRandomExhibition();
-    }, 100);
+    }, 10000);
 });
 
-// async function loadExhibitions() {
-//     const api_url = "https://collectionapi.metmuseum.org/public/collection/v1/objects";
-//     const response = await fetch(api_url);
-//     const data = await response.json();
-//     console.log(data);
+let objectIds = [];
 
+// STEP 1: Get all object IDs
+async function loadObjectIds() {
+    try {
+        // ONLY GET OBJECTS WITH IMAGES TO ENSURE WE HAVE SOMETHING TO DISPLAY
+        const response = await fetch(
+            "https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=*"
+        );
 
-// }
-let dataSize: number;
-async function loadRandomExhibition() {
-    const randomObjectID = Math.floor(Math.random() * dataSize);
-    const randomApiUrl = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${randomObjectID}`;
-    const randomResponse = await fetch(randomApiUrl);
-    const randomData = await randomResponse.json();
-    dataSize = randomData.length;
-    renderObjectProperties(randomData);
-    renderMeasurements(randomData.measurements ?? []);
-}
-function renderObjectProperties(data: any) {
-    const objectProperties = document.getElementById("objectProperties") as HTMLDivElement | null;
-    if (!objectProperties) return;
+        if (!response.ok) {
+            throw new Error("Failed to fetch object IDs");
+        }
 
-    clearElement(objectProperties);
+        const data = await response.json();
 
-    // const entries = Object.entries(data ?? {}).filter(([key]) =>
-    //     !["measurements", "isHighlight", "galleryNumber",
-    //         "objectURL", "tags", "objectWikidata_URL", "isPublicDomain",
-    //         "primaryImageSmall", "primaryImage", "additionalImages",
-    //         "constituents", "period", "objectID", ""]
-    //         .includes(key));
-    // for (const [key, value] of Object.entries(data ?? {})) {
-    //     addPropertyRow(objectProperties, key, value);
-    // 
+        if (data && Array.isArray(data.objectIDs)) {
+            objectIds = data.objectIDs;
 
-    // Chose properties to display, then display the rest of the properties
-    const propertiesToDisplay = [
-        "title",
-        "accessionNumber",
-        "accessionYear",
-        "artistDisplayName",
-        "objectDate",
-        "objectName",
-        "culture",
-        "medium",
-        "dimensions",
-        "creditLine",
-        "country",
-        "city",
-        "department"
-    ];
-
-    for (const key of propertiesToDisplay) {
-        // replace key with a more human readable format
-
-        // let humanReadableKey = key
-        // if (key === "accessionNumber") {
-        //     humanReadableKey = "Accession Number";
-        // } else if (key === "accessionYear") {
-        //     humanReadableKey = "Accession Year";
-        // } else if (key === "artistDisplayName") {
-        //     humanReadableKey = "Artist Name";
-        // } else if (key === "objectDate") {
-        //     humanReadableKey = "Object Date";
-        // } else if (key === "objectName") {
-        //     humanReadableKey = "Object Name";
-        // } else if (key === "creditLine") {
-        //     humanReadableKey = "Credit Line";
-        // } else if (key === "country") {
-        //     humanReadableKey = "Country";
-        // } else if (key === "city") {
-        //     humanReadableKey = "City";
-        // } else if (key === "department") {
-        //     humanReadableKey = "Department";
-        // }
-        // put thr imsge on its html element
-        if (key === "primaryImage" && data?.[key]) {
-            const img = document.getElementById("image") as HTMLImageElement | null;
-            if (img) {
-                img.src = data?.[key];
-                img.alt = data?.["title"] ?? "Museum Object";
-                img.style.width = "100%";
-                img.style.borderRadius = "24px";
-                img.style.objectFit = "cover";
-                img.style.boxShadow = "var(--shadow)";
-                img.style.border = "1px solid var(--border)";
-                const imageContainer = document.getElementById("image") as HTMLDivElement | null;
-                if (imageContainer) {
-                    clearElement(imageContainer);
-                    imageContainer.appendChild(img);
-                }
+            if (objectIds.length > 0) {
+                loadRandomExhibition(); // Load immediately
             }
-            const humanReadableKey = key
-                .replace(/([A-Z])/g, " $1")
-                .replace(/^./, (str) => str.toUpperCase());
-            addPropertyRow(objectProperties, humanReadableKey, data?.[key] ?? "Not Available");
         }
+
+    } catch (error) {
+        console.error("Error loading object IDs:", error);
     }
 }
-function renderMeasurements(measurements: any[]) {
-    const measurementProperties = document.getElementById("measurementProperties") as HTMLDivElement | null;
-    if (!measurementProperties) return;
 
-    clearElement(measurementProperties);
+// STEP 2: Pick random object
+async function loadRandomExhibition() {
+    try {
+        if (objectIds.length === 0) return;
 
-    if (!Array.isArray(measurements) || measurements.length === 0) {
-        addPropertyRow(measurementProperties, "Measurements", "Not Available");
-        return;
-    }
+        const randomIndex = Math.floor(Math.random() * objectIds.length);
+        const randomObjectID = objectIds[randomIndex];
 
-    measurements.forEach((measurement) => {
-        const section = document.createElement("div");
-        section.style.marginBottom = "12px";
-        section.style.border = "2.5px solid rgba(43, 43, 53, 0.5)";
+        const response = await fetch(
+            `https://collectionapi.metmuseum.org/public/collection/v1/objects/${randomObjectID}`
+        );
 
-        // replace key with a more human readable format
-        const humanReadableElementName = "Element Name";
-        const humanReadableElementDescription = "Element Description";
-        addPropertyRow(section, humanReadableElementName, measurement?.elementName ?? "Not Available");
-        addPropertyRow(section, humanReadableElementDescription, measurement?.elementDescription ?? "Not Available");
+        // // store the response in the global variable and also on the window object for access in other modules
+        // (window as any).store = response;
+        // window.dispatchEvent(new CustomEvent("museum:store-ready", { detail: response }));
 
-        // Incase elementMeasurements is an object, display its properties as well
-        const elementMeasurements = measurement?.elementMeasurements;
-        if (elementMeasurements && typeof elementMeasurements === "object") {
-            Object.entries(elementMeasurements).forEach(([key, value]) => {
-
-                addPropertyRow(section, key, value);
-            });
-        } else {
-            addPropertyRow(section, "elementMeasurements", "Not Available");
+        if (!response.ok) {
+            throw new Error("Failed to fetch object details");
         }
 
-        measurementProperties.appendChild(section);
+        const data = await response.json();
+
+        renderObject(data);
+
+    } catch (error) {
+        console.error("Error loading random exhibition:", error);
+    }
+}
+
+// STEP 3: Render Object Data
+function renderObject(data) {
+    renderImage(data);
+    renderProperties(data);
+    renderMeasurements(data.measurements);
+}
+
+// IMAGE (FROM JSON)
+function renderImage(data) {
+    const img = document.getElementById("image") as HTMLImageElement | null;
+
+    if (!img) return;
+
+    let imageUrl = null;
+
+    if (data && data.primaryImageSmall) {
+        imageUrl = data.primaryImageSmall;
+    } else if (data && data.primaryImage) {
+        imageUrl = data.primaryImage;
+    }
+
+    if (imageUrl && imageUrl !== "") {
+        img.src = imageUrl;
+    } else {
+        img.src = "images/akicholong.jpg"; // Display this image if no valid image URL is available
+    }
+
+    img.alt = data?.title || "Museum Object";
+}
+
+// OBJECT PROPERTIES
+function renderProperties(data) {
+    const container = document.getElementById("objectProperties");
+    if (!container) return;
+
+    clearElement(container);
+
+    const properties =
+        [
+            "title",
+            "artistDisplayName",
+            "objectDate",
+            "culture",
+            "medium",
+            "dimensions",
+            "country",
+            "department"
+        ];
+
+    properties.forEach(key => {
+        const value = data?.[key];
+
+        addRow(container, formatKey(key), formatValue(value));
     });
 }
 
-function addPropertyRow(container: HTMLElement, key: string, value: any) {
-    const row = document.createElement("div");
-    const label = document.createElement("span");
-    label.textContent = `${key}: `;
+// MEASUREMENTS
+function renderMeasurements(measurements) {
+    const container = document.getElementById("measurementProperties");
+    if (!container) return;
 
-    const valueSpan = document.createElement("span");
-    valueSpan.textContent = formatValue(value);
-    valueSpan.style.color = "rgba(174, 174, 237, 1)";
+    clearElement(container);
+
+    if (!Array.isArray(measurements) || measurements.length === 0) {
+        addRow(container, "Measurements", "Not Available");
+        return;
+    }
+
+    measurements.forEach(measurement => {
+        const section = document.createElement("div");
+        section.style.marginBottom = "10px";
+
+        addRow(section, "Element Name", measurement?.elementName);
+        addRow(section, "Element Description", measurement?.elementDescription);
+
+        if (measurement?.elementMeasurements) {
+            Object.entries(measurement.elementMeasurements).forEach(([key, value]) => {
+                addRow(section, key, value);
+            });
+        }
+
+        container.appendChild(section);
+    });
+}
+
+//HELPERS
+function addRow(container, key, value) {
+    const row = document.createElement("div");
+
+    const label = document.createElement("strong");
+    label.textContent = key + ": ";
+
+    const span = document.createElement("span");
+    span.textContent = value ?? "Not Available";
 
     row.appendChild(label);
-    row.appendChild(valueSpan);
+    row.appendChild(span);
     container.appendChild(row);
 }
 
-function formatValue(value: any) {
-    if (value === null || value === undefined || value === "") return "Not Available";
-    if (Array.isArray(value)) {
-        if (value.length === 0) return "[]";
-        const allPrimitive = value.every(
-            (item) => item === null || ["string", "number", "boolean"].includes(typeof item)
-        );
-        if (allPrimitive) return value.join(", ");
-        return value
-            .map((item) => {
-                if (item === null || item === undefined) return "Not Available";
-                if (Array.isArray(item)) return `[${item.join(", ")}]`;
-                if (typeof item === "object") {
-                    return Object.entries(item)
-                        .map(([key, val]) => `${key}: ${formatValue(val)}`)
-                        .join(" | ");
-                }
-                return String(item);
-            })
-            .join("; ");
-    }
-    if (typeof value === "object") return JSON.stringify(value);
-    return String(value);
-}
-
-function clearElement(element: HTMLElement) {
+function clearElement(element) {
     while (element.firstChild) {
         element.removeChild(element.firstChild);
     }
+}
+
+function formatKey(key) {
+    return key
+        .replace(/([A-Z])/g, " $1")
+        .replace(/^./, str => str.toUpperCase());
+}
+
+function formatValue(value) {
+    if (value === null || value === undefined || value === "") {
+        return "Not Available";
+    }
+
+    if (Array.isArray(value)) {
+        return value.join(", ");
+    }
+
+    return value.toString();
 }
