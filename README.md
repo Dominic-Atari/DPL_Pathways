@@ -59,7 +59,7 @@ Instead of rushing into frameworks, I:
 
 That mindset is exactly how long-term mastery is built.
 
-Hi all,
+[Hi all,
 
 I am looking forward to getting started tomorrow (Monday) morning!
 
@@ -109,3 +109,4 @@ Schedule a meeting: Calendly - Malika Yadgarova
  
 
 Get Outlook for Mac
+](https://app.zoom.us/wc/500187487/join?ref_from=launch&fromPWA=1&_x_zm_rtaid=GtX4RDK1Q5ectHcrzBduaA.1771943372172.3b6bf447aebc6bcd4944a3da0c16f4a9&_x_zm_rhtaid=337)
